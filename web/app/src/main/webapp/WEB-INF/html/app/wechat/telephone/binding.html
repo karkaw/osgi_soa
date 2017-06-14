@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>关联手机号码</title>
+    <#include "../head.html"/>
+</head>
+
+<style>
+
+</style>
+
+<body ontouchstart>
+<form id="bindTelForm">
+    <section>
+        <input type="hidden" id="unionId" name="unionId" value="${unionId!}">
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
+                <div class="weui_cell_bd">
+                    <input class="weui_input" type="tel" id="telephone" name="telephone" maxlength="11" placeholder="请输入手机号"
+                           data-pattern="^0?1[3|4|5|7|8][0-9]\d{8}$" data-required="true"/>
+                </div>
+                <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="text" id="vcode" name="vcode" maxlength="6" placeholder="请输入验证码" data-required="true" />
+                </div>
+                <div class="weui_cell_ft">
+                    <i class="weui_icon_warn"></i>
+                    <a href="javascript:;" id="checkTel" class="weui_btn weui_btn_mini weui_btn_primary">获取</a>
+                </div>
+            </div>
+            <div class="weui_cell" id="passwordArea" style="display: none">
+                <div class="weui_cell_hd"><label class="weui_label">密码</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="password" id="password" name="password" maxlength="15" placeholder="请设置美邻应用登录密码" data-conditional="checkPwd"/>
+                </div>
+                <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
+            </div>
+            <div class="weui_cell" id="invitedArea" style="display: none">
+                <div class="weui_cell_hd"><label class="weui_label">邀请码</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="text" name="invited" id="invited" value="${invited!}" maxlength="6" placeholder="请输入邀请码" data-required="true"/>
+                </div>
+                <div class="weui_cell_ft">
+                    <i class="weui_icon_warn"></i>
+                    <a href="javascript:;" id="platformInvitedCodeBtn" class="weui_btn weui_btn_mini weui_btn_primary">平台指定</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="weui_btn_area">
+            <button type="submit" id="telBindBtn" class="weui_btn weui_btn_primary js_btn">立即关联</button>
+        </div>
+    </footer>
+</form>
+
+<!--BEGIN toast-->
+<div id="success" style="display:none">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toast">
+        <i class="weui_icon_toast"></i>
+        <p class="weui_toast_content" id="content">已完成</p>
+    </div>
+</div>
+<div id="failed" style="display:none">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toast">
+        <!--<i class="weui_icon_warn"></i>-->
+        <!--<i class="weui_icon_toast"></i>-->
+        <i class="weui_icon_toast_error"></i>
+        <p class="weui_toast_content" id="content">请求失败</p>
+    </div>
+</div>
+<!--end toast-->
+</body>
+
+<script src="${res}/mobileValidate/js/jquery-mvalidate.js"></script>
+<script>
+
+    function showToast(content, success){
+        if (typeof  content == 'boolean') {
+            success = content;
+            content = null;
+        }
+        var toast;
+        if (success) {
+            content = content || "请求成功！"
+            toast =  $("#success");
+        } else {
+            content = content || "请求失败！"
+            toast =  $("#failed");
+        }
+        toast.show();
+        $("#content",toast).html(content);
+        setTimeout(function () {
+            toast.hide();
+        }, 2000);
+    }
+
+    function hiddenPassword(){
+        $("#passwordArea").attr("style","display:none");
+        $("#password").removeAttr("data-required")
+    }
+
+    function showPassword(){
+        $("#passwordArea").removeAttr("style");
+        $("#password").attr("data-required", "true");
+    }
+
+    function toggleCheckTelClass(){
+        $("#checkTel").toggleClass("weui_btn_disabled");
+        $("#checkTel").toggleClass("weui_btn_default");
+        $("#checkTel").toggleClass("weui_btn_primary");
+    }
+
+    function toggleTelBindBtn(){
+        $("#telBindBtn").toggleClass("weui_btn_disabled");
+        $("#telBindBtn").toggleClass("weui_btn_default");
+        $("#telBindBtn").toggleClass("weui_btn_primary");
+    }
+
+    $(function(){
+        $("#checkTel").on("click",function(){
+            var telephone = $("#telephone").val();
+            var telReg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+            if (!telReg.test(telephone)) {
+                var $parent = $("#telephone").parent().parent();
+                $parent.removeClass("weui_cell_warn");
+                $parent.addClass("weui_cell_warn");
+                return;
+            }
+            if (countdown > 0) return;
+            countdown = 1;
+            toggleCheckTelClass();
+            var url='${base}/wx/telephone/check?telephone=' + telephone;
+            $.ajax({
+                url:url,
+                type:"get",
+                success:function(data){
+                    if (data && data.type == 1) {
+                        var oaInvited = '${invited!}';//微信关注者是否有邀请人的邀请码
+                        var res = data.result;
+
+                        showToast("验证码已发送手机", true);
+                        settime($("#checkTel"), 120);
+
+                        hiddenPassword();
+                        $("#invitedArea").attr("style","display:none");
+                        if (res) {
+                            if ($.trim(res.invited) != "") {
+                                //电话号码对应的账号有邀请码
+                                $("#invited").val(res.invited);
+                                return;
+                            }
+                        } else {
+                            //电话号码对应的账户存在
+                            showPassword();
+                        }
+                        if($.trim(oaInvited) == "") {
+                            // 两个账号都无邀请人的邀请码
+                            $("#invitedArea").removeAttr("style");
+                        }
+                        $("#invited").val(oaInvited);
+                    } else {
+                        countdown = -1;
+                        showToast("网络错误")
+                    }
+
+                },
+                error:function(){
+                    toggleCheckTelClass();
+                    countdown = -1;
+                    showToast("网络错误")
+                }
+            });
+
+        });
+
+        $("#platformInvitedCodeBtn").on("click",function(){
+            $.ajax({
+                url: "${base}/wx/telephone/platform/invited",
+                type: "get",
+                success: function (data) {
+                    if(data && data.type == 1) {
+                        $("#invited").val(data.result);
+                    } else {
+                        showToast("网络错误");
+                    }
+                },
+                error:function(){
+                    showToast("网络错误");
+                }
+            });
+        });
+
+
+        var validateConfig = {
+            type:2,
+            onKeyup:true,
+            sendForm:false,
+            firstInvalidFocus:true,
+            valid:function(){
+                bindTelephone();
+            },
+            conditional:{
+                checkPwd : function(val){
+                    if (!$("#password").attr("data-required")) return true;
+                    return $.trim(val).length >= 6;
+                }
+            },
+            eachValidField:function(){
+                var $parent = $(this).parent().parent();
+                $parent.removeClass("weui_cell_warn");
+            },
+            eachInvalidField:function(a, b, c){
+                var $parent = $(this).parent().parent();
+                $parent.removeClass("weui_cell_warn");
+                $parent.addClass("weui_cell_warn");
+            }
+        };
+        $("#bindTelForm").mvalidate(validateConfig);
+
+        function bindTelephone(){
+            toggleTelBindBtn();
+            var url = "${base}/wx/telephone/bind";
+            var data = {
+                telephone:$("#telephone").val(),
+                vcode:$("#vcode").val(),
+                invited:$("#invited").val(),
+                password:$("#password").val(),
+                unionId:$("#unionId").val()
+            }
+            $.ajax({
+                url: url,
+                type: "post",
+                data:data,
+                success: function (data) {
+                    if (data) {
+                        if(data.type==1) {
+                            showToast("关联成功", true);
+                            location.href = "${base}/wx/telephone/bound/result?first=true&telephone=" + data.result;
+                        }
+                        data.type==0 && showToast(data.msg, false);
+                    } else {
+                        showToast("关联失败")
+                    }
+                },
+                error:function(){
+                    showToast("网络错误")
+                },
+                complete:function(){
+                    toggleTelBindBtn();
+                }
+            });
+        }
+    })
+    var countdown = -1;
+    function settime(obj, time) {
+        if (time) countdown = time;
+        if (countdown == 0) {
+            obj.removeAttr("disabled");
+            obj.html("重新发送")
+            countdown = -1;
+            toggleCheckTelClass();
+            return;
+        } else {
+            obj.attr("disabled", true);
+            obj.html("(" + countdown + ")秒")
+            countdown--;
+        }
+        setTimeout(function() {
+            settime(obj)
+        },1000)
+    }
+</script>
+</html>

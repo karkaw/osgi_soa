@@ -1,0 +1,51 @@
+body{
+	background-color: #F0F0F2;
+	overflow: hidden;
+}
+.closeBind{
+	float: left;
+	font-size: 2em;
+	height: 1em;
+	width: 1em;
+	line-height: 1em;
+	color: #fff;
+	text-align: center;
+	background-color: #555;
+}
+.sectionBind{
+	background-color: #fff;
+	margin-top: 1em;
+	margin-bottom: 3em;
+	border-top: 1px solid #ccc;
+}
+.sectionBind div{
+	height: 4em;
+	line-height: 4em;
+	border-bottom:1px solid #ccc;
+}
+.sectionBind input{
+	border:0;
+	outline: none;
+	height: 3.9em;
+}
+.getValue{
+	color: #26C6DA;
+	border:1px solid #26C6DA !important;
+	background-color: #fff;
+	width: 6em;
+	height: 3em !important;
+}
+.msg{
+	background-color:#F0F0F2; 
+	border:0 !important; 
+	height: 1.5em !important;
+	line-height: 1.5em !important;
+	height: 18px !important;
+}
+.bindTel{
+	width: 80%;
+	margin-left: 10%;
+}
+.Validform_checktip{
+	margin-left: 0;
+}

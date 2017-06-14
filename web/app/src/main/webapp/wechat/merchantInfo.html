@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="美邻共享，共享经济">
+    <meta name="author" content="ishadowsocks">
+    <meta name="keywords" content="meilin,美邻,美邻共享,美邻下载,美邻共享分享">
+    <title>美邻共享，共享经济</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/merchantInfo.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/favicon.ico">
+</head>
+<body>
+    <header>
+        <span class="editImg">点击修改店铺图片</span>
+        <img src="image/1.jpg" class="headerImg">
+        <img src="image/1.jpg" class="merchantIcon">
+    </header>
+    <section>
+        <ul>
+            <li class="merchatHeader">
+                <span style="font-size:2em;color:#666">沈小福</span>
+                <span style="font-size:.9em"> | 人均<input type="tel" class="form-control yuan" placeholder="30" disabled maxlength="4">元</span>
+            </li>
+            <div class="input-group">
+                <span class="input-group-addon">我的位置</span>
+                <input type="text" class="form-control" placeholder="桐梓林桐梓林桐梓林" disabled maxlength="30">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">店铺介绍</span>
+                <input type="text" class="form-control" placeholder="洋快餐" disabled maxlength="30">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">折扣需知</span>
+                <input type="text" class="form-control" placeholder="全场通用" disabled maxlength="30">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">营业时间</span>
+                <input type="text" class="form-control" placeholder="9:00-21:00" disabled maxlength="30">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">支持服务</span>
+                <input type="text" class="form-control" placeholder="wifi,无烟区" disabled maxlength="30">
+            </div>
+        </ul>
+    </section>
+    <footer>
+        <a class="btn btn-info edit">编辑资料</a>
+        <a class="btn btn-info save" style="display:none">保存</a>
+    </footer>
+
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+    $('.edit').on('click',function(){
+        $('input').attr('disabled',false);
+        $(this).css('display','none');
+        $('.save').css('display','inline-block');
+    })
+</script>
+</body>
+</html>

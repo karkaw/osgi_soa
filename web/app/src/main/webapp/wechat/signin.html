@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="美邻共享，共享经济">
+    <meta name="author" content="ishadowsocks">
+    <meta name="keywords" content="meilin,美邻,美邻共享,美邻下载,美邻共享分享">
+    <title>美邻共享，共享经济</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/favicon.ico">
+</head>
+<body ms-controller="integral">
+    <header>
+        <div class="headerBg">
+            <span class="signin" ms-click="signin">立即签到</span>
+        </div>
+    </header>
+    <section>
+        <div class="integralTop">
+            <span class="integralMark">{{daysWeek}}</span>
+        </div>
+        <div class="integral">
+            <span class="integralContent" ms-css-width="{{integralContent}}%">&nbsp;</span>
+        </div>
+        <div class="integralBottom">
+            <span class="integraltot">￥</span><span> {{integral}}</span>
+        </div>
+        <div class="integralBottom">
+            <span class="">已连续签到{{totalDays}}天</span>
+        </div>
+    </section>
+    <footer>
+        <div class="rule">
+            <div class="ruleTitle"><span>活动规则</span></div>
+            <div class="ruleContent">
+                <h4><i class="activity"></i>每日签到</h4>
+                <ul>
+                    <li>签到1次1积分。</li>
+                    <li>签到1次1积分。签到1次1积分</li>
+                    <li>签到1次1积分。签到1次1积分。签到1次1积分。签到1次1积分。</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+<script type="text/javascript" src="js/avalon.modern.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+var integralCount = "0";
+var integral = avalon.define({
+    $id : "integral",
+    count : "0",
+    daysWeek : "0",
+    days: "0",
+    totalDays : "0",
+    integral : "0",
+    integralContent : "0",
+    signin : function(){
+        dialog("签到成","成功");
+        integral.count++;
+        integralCount = integral.count;
+        integral.daysWeek = integralCount;
+        integral.days = integralCount;
+        integral.totalDays = integralCount;
+        integral.integral = integralCount;
+        integral.integralContent = integralCount;
+    }
+})
+
+/*弹出窗*/
+function dialog(title,info,func) {
+    var node = '<div class="fullbg show"></div>' +
+        '<div class="dialog show">' +
+        '<div class="dialog-title">' +title+ '</div>' +
+        '<div class="dialog-content">' +
+        '<div class="dialog-body">' +
+        '<i class="dialog-icon dialog-succeed"></i>'+
+        '<div class="dialog-info">'+info+'</div></div>' +
+        '<div class="dialog-footer"><input class="btn btn-creat btn-enter" type="button" value="确定"/></div>' +
+        '</div></div>';
+    $("body").append(node);
+    
+    $(".btn-enter").on("click", function () {
+        var parents = $(this).parents(".dialog");
+        func && func();
+        parents.prev().remove();
+        parents.remove();
+    });
+}
+</script>
+</body>
+</html>

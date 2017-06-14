@@ -1,0 +1,109 @@
+ body,input{
+	background:url("../image/bodyBg.png")center center repeat !important;
+}
+input{
+	outline: none;
+	width: 70%;
+}
+.content{
+	width: 90%;
+	height: 100%;
+	background-color: #fcfefd;
+	border: 1px solid #d4dcde;
+	margin: 3em auto;
+	color: #ccffff;
+	text-align:center;
+}
+.register{
+	width: 40%;
+    height: 2em;
+    line-height: 2em;
+    margin-left: 2em;
+    background-color: #5bc0de;
+    margin-top: -0.5em;
+    display: block;
+    border-radius: 3px;
+    text-align: center;
+    
+}
+.account{
+	margin-top:2em;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+
+}
+.password{
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}
+.Invitation{
+	margin-top:2em;
+
+}
+.verification{
+	margin-top:2em;
+}
+.sexGroup{
+	margin: 2em auto;
+	text-align: center;
+}
+.sexGroup button{
+	width:5em;
+}
+.sex{
+	display: none;
+}
+.check{
+	width: 1em;
+
+}
+.man{
+	margin-top: 1em;
+}
+.woman{
+	margin-top: 1em;
+}
+.succeed{
+
+    margin-bottom: -2.5em;
+   
+    display:block;
+    border-radius: 3px;
+}
+.verification{
+	position: relative;
+}
+.gain{
+	position: absolute;
+	bottom: 3px;
+	right: 1.3em;
+	height: 2em;
+	padding: 1px;
+	width: 5em;
+}
+.scan{
+	position: relative;
+}
+.sscannogram{
+	position: absolute;
+    font-size: 2em;
+    color: #5bc0de;
+    right: 25px;
+    top: 4px;
+}
+.aproved{
+    text-align: center;
+    margin-top: -1.5em;
+    margin-bottom: 1.5em;
+    color: #999;
+    font-size: .9em;
+}
+.aprovedInput{
+	vertical-align: middle;
+    vertical-align: baseline;
+    height: 1em;
+}
+.hasId{
+	margin-top: 1em;
+    text-align: center;
+}

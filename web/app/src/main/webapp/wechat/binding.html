@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/binding.css">
+	<title>美邻共享</title>
+</head>
+<body>
+    <div class="content">
+    <div class="top">
+        <input  placeholder="请输入手机号" class="txt1" type="text" maxlength="11">
+        <input class="btn" type="button" value="获取验证码">
+        <input  placeholder="请输入验证码" class="txt2" type="text" value="" maxlength="6">
+    </div>
+    <h1>MlGx</h1>
+    <span class="span">绑定</span>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/avalon.modern.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+    var url = 'wechat/binding';
+    $.ajax({
+      type:'post',
+      dataType : 'json', 
+      url: common_url+url,
+      data: {'telephone': 13658011651},
+      success:function(ret,err){
+        console.log(JSON.stringify(ret))
+        console.log(JSON.stringify(err))
+      }
+    })
+</script>
+</html>

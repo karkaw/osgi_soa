@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!-- 处理文件上传 -->
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--&lt;!&ndash; 默认编码 (ISO-8859-1) &ndash;&gt;-->
+        <property name="defaultEncoding" value="utf-8"/>
+       <!-- &lt;!&ndash; 最大内存大小 (10240)&ndash;&gt;-->
+        <property name="maxInMemorySize" value="10240"/>
+       <!-- &lt;!&ndash; 上传后的临时目录名 (WebUtils#TEMP_DIR_CONTEXT_ATTRIBUTE) &ndash;&gt;-->
+        <!--<property name="uploadTempDir" value="/upload_temp/"/>-->
+        <!--&lt;!&ndash; 最大文件大小，-1为无限止(-1),注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和  &ndash;&gt;-->
+        <property name="maxUploadSize" value="-1"/>
+        
+    </bean>
+    
+    <!-- SpringMVC在超出上传文件限制时，会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->
+    <!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 -->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/jsp/fileError.jsp页面 -->
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">
+                    fileError
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 统一异常处理 -->
+    <bean id="exceptionHandlerResolver" class="com.damuzee.core.web.exception.ExceptionMethodHandlerResolver">
+        <property name="defaultErrorView" value="error"/> <!--默认错误页面-->
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+                <!-- JSON转换器无需设置mediaType,由外部客户端调用时，手动设置相关mediaType -->
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                    <property name="objectMapper">
+                        <bean class="com.damuzee.core.web.jackson.SimpleJacksonMapper"/>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 定义一个统一的返回消息处理器 -->
+    <bean class="com.damuzee.core.web.WebResponseWithMessage">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+                <!-- JSON转换器无需设置mediaType,由外部客户端调用时，手动设置相关mediaType -->
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                    <property name="objectMapper">
+                        <bean class="com.damuzee.core.web.jackson.SimpleJacksonMapper"/>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+	
+	 <!--密码加密器-->
+	<bean id="pwdEncoder" class="com.damuzee.common.security.md5.Md5Encoder"/>
+	<!--Session-->
+	<bean id="session" class="com.damuzee.core.web.session.HttpSessionProvider"/>
+</beans>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/vessel.css">
+	<title>美邻</title>
+</head>
+<style>
+	#uploadify{
+	display: inline-block;
+	vertical-align: bottom;
+	margin: 0 0 0 10px;
+	position: relative;
+}
+</style>
+<body> 
+  <div class="vessel">
+  	<textarea placeholder="提交错误信息"  name="text1" maxlength="255"
+    oninput="javascript:ShowLength(this.value, 'contentLength');"></textarea>
+    <div class="contentLength">
+      <span id="contentLength">0</span>
+      <span>/255 字</span>
+    </div>
+  <div class="imgUpload">
+  </div>
+  <div style="text-align:center">
+    <input type="file" id="imgFile" class="imgFile">
+    <div class="uploadBtn">上传屏幕截图 <span class="imgLength">0</span>/3张</div>
+  </div>
+    <div class="bottom"><span>提交</span></div>
+  </div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/avalon.modern.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+<script type="text/javascript">
+/*
+*  1、url　　　　　　上传处理程序地址。　　
+*  2，fileElementId　　　　需要上传的文件域的ID，即<input type="file">的ID。
+*  3，secureuri　　　是否启用安全提交，默认为false。 
+*  4，dataType　　　服务器返回的数据类型。可以为xml,script,json,html。如果不填写，jQuery会自动判断。
+* 5，success　　　　提交成功后自动执行的处理函数，参数data就是服务器返回的数据。
+*  6，error　　　　提交失败自动执行的处理函数。
+*  7，data  　　　　自定义参数。这个东西比较有用，当有数据是与上传的图片相关的时候，这个东西就要用到了。
+*  8, type 　　　　　当要提交自定义参数时，这个参数要设置成post
+*/
+$('#imgFile').on('click',function(){
+  ajaxFileUpload();
+})
+function ajaxFileUpload() {2
+  var url = 'admin/file/uploadFile.do';
+  $.ajaxFileUpload({
+      url: common_url + url,
+      type: 'post',
+      secureuri: false,
+      data: { telephone : 123123 },
+      fileElementId: 'imgFile',
+      dataType: 'json',
+      success: function (data, status){
+        console.log(JSON.stringify(data))
+        if($('.imgUpload img').length <= 3){
+          $('.imgUpload').append('<img src="+ +" class="img">');
+          $('.imgLength').html($('.imgUpload img').length)
+        } else {
+          return;
+        }
+      },
+      error: function (data, status, e){ 
+        
+      }
+  });
+}
+
+//   字数长度
+function ShowLength(val,id) { 
+  var rem = val.length; 
+  var wid = id; 
+  if (rem < 0){ 
+    rem = 0; 
+  } 
+  document.getElementById(wid).innerHTML = rem; 
+} 
+</script>
+</html>

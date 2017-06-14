@@ -1,0 +1,50 @@
+body{
+	background:#EEEDEB;
+}
+.top{
+	width: 95%;
+	height: 5em;
+	margin:1em auto;
+	background: #fff;
+	padding-top: 1em;
+}
+.top_left{
+	width: 35%;
+	height: 6em;
+	float: left;
+	background:#F45061;
+	margin-top: -1em;
+	color:#fff;
+	text-align: center;
+	line-height: 1em;
+	margin-right: 1em;
+}
+.p_top{
+    margin-top: 0em;
+}
+.centent{
+	width: 95%;
+	height: 5em;
+	margin:1em auto;
+	background: #fff;
+	padding-top: 1em;
+}
+.center_left{
+	width: 35%;
+	height: 6em;
+	float: left;
+	background:#F8AF00;
+	margin-top: -1em;
+	color:#fff;
+	text-align: center;
+	line-height: 1em;
+	margin-right: 1em;
+}
+p{
+	font-size: 0.8em;
+    font-size: 0.8em;
+    margin-left: 9em;
+}
+hr{
+	margin-right: 2em;
+}

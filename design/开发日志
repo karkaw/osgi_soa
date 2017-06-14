@@ -1,0 +1,11 @@
+1、工程创建
+2、工程结构调整
+3、OSGI环境的配置
+4、ServiceProvider Bundle的RMI接口定义
+
+5、外部Bundle的服务注册到Provider
+6、Provider把注册的服务再注册到Register的zookeeper中服务器
+7、Gateway从Register中获取服务的接口暴露
+8、Gateway通过RMI远程服务实现
+
+9、Register服务

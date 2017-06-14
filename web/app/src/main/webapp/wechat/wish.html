@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="美邻共享，共享经济，许愿墙">
+    <meta name="author" content="ishadowsocks">
+    <meta name="keywords" content="meilin,美邻,美邻共享,美邻下载,美邻共享分享,许愿墙">
+    <title>美邻共享-许愿墙</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/wish.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/favicon.ico">
+</head>
+<body>
+	<section>
+		<div class="wishBtnGroup"><span type="button" class="btn wishBtn" data-toggle="modal" data-target=".bs-example-modal-sm"></span></div>
+		<div class="myWish">
+			<span class="myWishText"></span>
+		</div>
+
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	<span data-dismiss="modal" class="closeDialog">X</span>
+		    	<textarea autofocus="autofocus" class="wishText" maxlength="60" placeholder="我的愿望："></textarea>
+		    	<p style="text-align:center"><span class="submit">开始许愿</span</p>
+		    </div>
+		  </div>
+		</div>
+	</section>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$('.submit').on('click',function(){
+		$('.wishBtnGroup').hide();
+		$('.myWish').show();
+		$('.myWishText').html($('.wishText').val());
+		$('.modal').modal('hide');
+	})
+</script>
+</html>

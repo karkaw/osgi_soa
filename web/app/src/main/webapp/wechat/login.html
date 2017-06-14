@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="美邻共享，共享经济">
+    <meta name="author" content="ishadowsocks">
+    <meta name="keywords" content="meilin,美邻,美邻共享,美邻下载,美邻共享分享">
+    <title>美邻共享，共享经济</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/favicon.ico">
+</head>
+<body >
+  <div class="vessel ">
+    <span class="register" >美邻</span> 
+   <!-- <form class="form-horizontal" role="form"> -->
+     <div class="form-group col-md-12">
+        <div class="account col-md-6 col-md-offset-3">
+          <input type="tel" class="form-control inputbox" placeholder="请输入手机号" id="telphone">
+        </div>
+     </div>
+     <div class="form-group col-md-12">
+             <div class="col-sm-12 position">
+                <input type="text" class="form-control verification"  placeholder="请输短信验证码">
+                   <button class="btn btn-info gain" id="vcodebtn">获取</button>
+                <button type="button" id="vcodebtn" class="btn btn-info gain">获取<i id="timer"></i></button>
+             </div>
+     </div>
+         <span class="btn btn-info btn-lg btn-block bottombtn" type="text" >登录</span> 
+   <!--  </form>   -->
+  </div>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+  // $('.bottombtn').on("click",function(){
+  //   login();
+  // })
+  // $('#vcodebtn').on('click',function(){
+  //   getMsgCode();
+  // })
+  // function login(){
+  //   var loginUrl = 'login.do';
+  //   var bodyParam = {
+  //           username: $("#telphone").val(),
+  //           password: 123456,
+  //           // captcha: captcha
+  //       };
+  //   $.ajax({
+  //     type:'post',
+  //     dataType : 'json', 
+  //     url: common_url+loginUrl,
+  //     data: bodyParam,
+  //     success:function(data){
+  //       console.log(data)
+  //     },
+  //     error:function(data){
+  //       console.log(data)
+  //     }
+  //   })
+  // }
+/******************* 获取短信验证码开始  *******************/
+  
+  // var timer  ;
+  // var time = 60 ;
+
+  // function change(){
+  //   clearTimer();
+  // }
+
+  // function setTimer(){
+  //   $("#vcodebtn").css('display',true);
+  //   $("#vcodebtn").css('background',"#ccc");
+  //   timer = window.setInterval(function(){
+  //     if(time == 0 || time == -1){
+  //       clearTimer();
+  //       return;
+  //     } 
+  //     $("#timer").innerText = "(" + (time--) + ")";
+  //   },1000);
+  // }
+
+  // function clearTimer(){
+  //   $("#vcodebtn").css('display',false);
+  //   $("#vcodebtn").css('background',"#0fc978");
+  //   $("#timer").innerText = "";
+  //   window.clearInterval(timer);
+  //   time = 60;
+  // }
+  // function getMsgCode(){
+  //   var paramPhone = register.user.telephone;
+  //   if(!paramPhone){
+  //     alert({msg: "请输入手机号码！"});
+  //     return false;
+  //   }
+  //   if(!validateTel(paramPhone)){
+  //     alert({msg:'需要输入正确的手机号码哦!'});
+  //     return false;
+  //   }
+  //   var bodyParam = {
+  //       json : {
+  //           telephone: paramPhone
+  //       }
+  //     }
+  //   var vcodeUrl = "service/vcode.do";
+  //   $.ajax({
+  //     type:'post',
+  //     dataType : 'json', 
+  //     url: common_url+vcodeUrl,
+  //     data: bodyParam,
+  //     success:function(data){
+  //       setTimer();
+  //       alert("验证码已发送至您的手机");
+  //     },
+  //     error:function(data){
+  //       alert({msg: data});
+  //     }
+  //   })
+  // }
+</script>
+</body>
+</html>

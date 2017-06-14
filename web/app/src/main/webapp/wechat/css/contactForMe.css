@@ -1,0 +1,82 @@
+body{
+	background: url(../image/bg3.jpg);
+	padding: 1em;
+    margin: 0;
+}
+.body{
+	width: 90%;
+	background:#FFFFFF ;
+	margin:0 auto;
+	padding: 0.3em;
+}
+.top{
+	width: 90%;
+	height: 4.5em;
+	border-bottom:1px solid #0FC978;
+	margin: 15% auto;
+	line-height: 1.3em;
+}
+.topImg{
+	background: url(../image/1.jpg)center center no-repeat;
+	background-size: 100% 100%;
+	height: 3em ;
+	width: 3em;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	float: right;
+}
+.center{
+	width: 90%;
+	border-bottom: 1px solid #0FC978;
+	margin:auto;
+	margin-top: -1em;
+}
+.centerImg{
+	background: url(../image/1.jpg)center center no-repeat;
+	background-size: 100% 100%;
+	height: 3em ;
+	width: 3em;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	float: right;
+}
+p{
+	font-size: 0.8em;
+}
+.bottom{
+    width: 65%;
+    height: 4.5em;
+    border-bottom: 1px solid #0FC978;
+    float: right;
+    margin-right: 1em;
+    line-height: 1.2em;
+    margin-top: 1em;
+}
+.bottomImg{
+    background: url(../image/1.jpg)center center no-repeat;
+    background-size: 100% 100%;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    float: left;
+    position: absolute;
+    left: 15%;
+}
+.icon{
+	width: 90%;
+	height: 6em;
+	margin: auto;
+	text-align: center;
+    margin-top: 9em;
+}
+.mark{
+	width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
+    border: 1px solid skyblue;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,73 @@
+body,html{
+	background: url(../image/wishBg.png)center center no-repeat;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	height: 100%;
+	width: 100%;
+}
+.wishBtnGroup{
+	text-align: center;
+	width: 100%;
+	height: 3em;
+	position: absolute;
+	top: 30%;
+}
+.wishBtn{
+	height: 3em;
+	width: 8em;
+	background: url(../image/wishBtn.png)center center no-repeat;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	display: inline-block;
+}
+.myWish{
+	text-align: left;
+    width: 60%;
+    margin-left: 20%;
+    height: 45vh;
+    position: absolute;
+    top: 30%;
+    display: none;
+    background: url(../image/wishNotes.png)center center no-repeat;
+    z-index: 999;
+    background-size: 100% 100%;
+}
+.myWishText{
+	font-family: "微软雅黑,黑体";
+    position: absolute;
+    top: 13vh;
+    width: 76%;
+    margin-left: 13%;
+    height: 26vh;
+    display: inline-block;
+    word-wrap: break-word;
+}
+.modal-content {
+    margin-top: 20%;
+    background: url(../image/wishDialog.png)center center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    height: 60vh;
+	border: 0;
+	box-shadow:none;
+}
+.wishText{
+    width: 60%;
+    margin-left: 19%;
+    margin-top: 19vh;
+    height: 25vh;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+}
+.closeDialog{
+    position: absolute;
+    right: 2em;
+    color: #fff;
+    width: 2em;
+    height: 2em;
+    border: 2px solid #fff;
+    line-height: 1.8em;
+    text-align: center;
+    border-radius: 50%;
+}

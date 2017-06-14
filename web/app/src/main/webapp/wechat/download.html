@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="ishadowsocks">
+    <title>美邻共享，共享经济</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/meilin.css" rel="stylesheet">
+    <link href="css/download.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/favicon.ico">
+</head>
+<body id="page-top" class="index">
+    <div class="full" id="full" style="display:none">
+    </div>
+    <!-- Howto Section -->
+    <section class="success" id="download" >
+        <div class="container">
+            <div class="row">
+            </div>
+            <div class="row">
+        		<div class="col-lg-6 text-center">
+                    <img src="image/meilin_user_android.png" class="img-responsive img-centered" alt="">
+                    <h3>
+                        <img src="image/android-circle.png" class="img-responsive img-centered"
+                             style="display: inline-block;vertical-align: text-top;" alt="" width="28px" height="28px">
+                        Android
+                    </h3>
+                        <p><a href="http://www.mlinf.com/app/file/download/meilin_user_android" class="btn btn btn-info" target="_blank">点击下载</a></p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="image/meilin_user_ios.png" class="img-responsive img-centered" alt="" >
+                    <h3>
+                        <img src="image/apple-circle.png" class="img-responsive img-centered"
+                             style="display: inline-block;vertical-align: text-top;" alt="" width="28px" height="28px">
+                        APP Store
+                    </h3>
+                        <p><a href="https://itunes.apple.com/cn/app/mei-lin-gong-xiang/id1065458219?mt=8" class="btn btn btn-info" target="_blank">点击下载</a></p>
+                </div>
+            </div>
+        </div>
+    &nbsp;<br>
+    <!-- script -->
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	function isWeiXin(){
+		var ua = window.navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	if(isWeiXin()){
+		$('#full').fadeIn(1200);
+		$('#full').on('click',function(){
+			$(this).hide(1200);
+		})
+	}
+	
+}
+
+</script>
+
+</body>
+</html>

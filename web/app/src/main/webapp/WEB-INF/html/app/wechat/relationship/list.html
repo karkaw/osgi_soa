@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我的关系</title>
+    <#include "../head.html"/>
+</head>
+<body ontouchstart>
+    <div class="bd">
+        <div class="weui_cells">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>我的邀请人</p>
+                </div>
+                <div class="weui_cell_ft">${invitor.name?default('没有邀请人')}</div>
+            </div>
+            <#if invite??>
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>我的邀请码</p>
+                    </div>
+                    <div class="weui_cell_ft">${invite!}</div>
+                </div>
+            </#if>
+        </div>
+        <div class="weui_cells_title">我邀请的朋友</div>
+        <#assign  noInvitee=true />
+        <div class="weui_cells">
+        <#list invitees as invitee>
+            <#assign  noInvitee=false />
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>${invitee.name!}</p>
+                        <p>${invitee.telephone?substring(0,3)}****${invitee.telephone?substring(7)}</p>
+                    </div>
+                    <div class="weui_cell_ft">邀请日期：${invitee.create_time?date}</div>
+                </div>
+        </#list>
+        </div>
+        <#if noInvitee>
+            <div class="weui_msg">
+                <div class="weui_icon_area">
+                    <i class="weui_icon_msg weui_icon_info"></i>
+                </div>
+                <div class="weui_text_area">
+                    <p class="weui_msg_desc">您还没有邀请朋友</p>
+                </div>
+            </div>
+        </#if>
+    </div>
+
+</body>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+.headerImg{
+	height: 13em;
+	width: 100%;
+}
+.merchantIcon {
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	margin-left: 1em;
+	margin-top: -2.5em;
+	border:2px solid #fff;
+	float: left;
+	position: relative;
+	z-index: 1000;
+}
+.merchatHeader{
+    height: 4em;
+    line-height: 4em;
+}
+header{
+	text-align: center;
+}
+section ul li{
+	height: 3em;
+	line-height: 3em;
+}
+section ul li span{
+	margin-left: .5em;
+	font-size: "黑体";
+	color: #999;
+}
+footer{
+	text-align: center;
+	height: 3em;
+	margin: .5em; 
+}
+footer .btn-info{
+	width: 60%;
+}
+.editImg{
+	width: 100%;
+    line-height: 13em;
+    position: absolute;
+    color: #ddd;
+}
+.yuan{
+	width: 4em;
+    display: inline-block;
+    margin: 0 .5em;
+}
+.input-group{
+    border-collapse: separate;
+    margin-bottom: 2px;
+    width: 98%;
+    margin-left: 1%;
+}

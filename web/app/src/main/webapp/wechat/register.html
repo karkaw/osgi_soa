@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="美邻共享，共享经济">
+    <meta name="author" content="ishadowsocks">
+    <meta name="keywords" content="meilin,美邻,美邻共享,美邻下载,美邻共享分享">
+    <title>美邻共享，共享经济</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/register.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/favicon.ico">
+</head>
+<body ms-controller="register">
+  <section>
+    <div class="content col-lg-10 ">
+      <span class="register" >注册</span>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="tel" class="form-control account"  placeholder="请输入您手机号" ms-duplex="user.telephone" maxlength="11" id="telephone">
+                <input type="password" class="form-control password"  placeholder="请输入您的密码" ms-duplex="user.password" maxlength="15">
+            </div>
+            <div class="col-sm-12 position">
+                <input type="tel" class="form-control verification"  placeholder="请输短信验证码" ms-duplex="user.msgcode" maxlength="6">
+                <button type="button" id="vcodebtn" class="btn btn-info gain" id="vcodebtn" onclick="getMsgCode()">获取<i id="timer"> </i></button>
+            </div>
+            <div class="col-sm-12 scan">
+                <input type="text" id="invited" class="form-control Invitation"  placeholder="获取邀请码" ms-duplex="user.invited" maxlength="6" readonly = "readonly">
+                <!-- <span class="glyphicon glyphicon-camera sscannogram" aria-hidden="true"></span> -->
+            </div>
+            <div class="sexGroup btn-group">
+              <label class="btn btn-info sexLable active" for="man">
+                <input type="radio" name="sex" id="man" class="sex" autocomplete="off" checked ms-duplex-string="user.sex" value="男">男
+              </label>
+              <label class="btn btn-info sexLable" for="woman">
+                <input type="radio" name="sex" class="sex" id="woman" autocomplete="off" ms-duplex-string="user.sex"  value="女">女
+              </label>
+            </div>
+            <div class="text-center aproved row">
+              <label>
+                <input type="checkbox" class="check aprovedInput" value="option1" ms-duplex-checked="protocol">
+                <span>同意美邻用户协议</span>
+              </label>    
+            </div>
+            <div class="col-sm-12">
+               <button class="btn btn-info btn-lg btn-block succeed" type="button" onclick="regist()">注册</button> 
+            </div>  
+      </form>
+   </div>
+  </section>
+  <footer>
+     <div class="hasId">
+       <a class="btn btn-info" type="button" href="download.html">已有账号</a> 
+    </div>   
+  </footer>
+           
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/avalon.modern.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+// $('#vcodebtn').on('click',function(){
+//   getMsgCode();
+// })
+// $('.succeed').on('click',function(){
+//   regist();
+// })
+$('#invited').attr("readonly","readonly");
+//取URL传的参数
+function getRequest() {
+  var url = location.search; 
+  var theRequest = new Object();
+  if (url.indexOf("?") != -1) {
+    var str = url.substr(1);
+    strs = str.split("&");
+    for(var i = 0; i < strs.length; i ++) {
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+    }
+  }
+  return theRequest;
+}
+var request = new Object();
+request = getRequest();
+var invited = request['invite'];
+
+var register = avalon.define({ 
+  $id : "register",
+  user : {
+    telephone : "",
+    password : "",
+    msgcode : "",
+    invited : invited,
+    sex : "男"
+  },
+  protocol:true
+})
+var sex = register.user.sex;
+$('.sexLable').on('click',function(){
+  if($(this).children('.sex').is(':checked')){
+    $('.sexLable').attr('class','btn btn-info sexLable');
+    $(this).attr('class','btn btn-info sexLable active');
+  } 
+})
+
+function regist() {
+  var user= register.user;
+  if(user.telephone == ""){
+    alert('还没输入手机号码哦!');
+      return false;
+  }
+  if(!validateTel(user.telephone)){
+    alert('输入正确的手机号码哦!');
+    return false;
+  }
+  if(user.password == ""){
+    alert('还没输入密码哦!');
+      return false;
+  }
+  if(user.password.length < 6 || user.password.length > 15){
+    alert('请输入6-15位密码');
+      return false;
+  }
+  if(user.msgcode == ""){
+    alert('还没输入短信验证码哦！');
+      return false;
+  }
+
+  if(user.invited == ""){
+      if(confirm("没有邀请码,则为美邻邀请码")){
+          alert('美邻邀请码')
+        }
+      return false;
+    }
+  if(!register.protocol){
+    alert('还没同意美邻协议哦！')
+  }
+  _regist();
+}
+
+function _regist(){
+  
+  var user = register.user;
+  var registerUrl = 'member/register.do';
+  var bodyParam = {
+      telephone: user.telephone,
+      vcode: user.msgcode,
+      invited : user.invited,
+      password : user.password
+  }
+  $.ajax({
+      type:'post',
+      dataType : 'json', 
+      url: common_url + registerUrl,
+      data: {json : JSON.stringify(bodyParam)},
+      success:function(ret,err){
+          if (ret && ret.type == 1) {
+            alert('注册成功！');
+            // user.isNewRegister = true;
+            window.location.href='download.html';
+          } else {
+              alert(JSON.stringify(ret.result) || "注册失败");
+          }
+      }
+    })
+
+}
+/******************* 获取短信验证码开始  *******************/
+  function validateTel(){ 
+    var tel = $('#telephone').val();
+    var reg = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$/;
+    if (reg.test(tel)){
+      return true;
+    } else {
+      return false
+    }
+  }
+  var timer  ;
+  var time = 60 ;
+
+  function change(){
+    clearTimer();
+  }
+
+  function setTimer(){
+    $("#vcodebtn").attr('disabled',true);
+    $("#vcodebtn").css('background',"#ccc");
+    timer = window.setInterval(function(){
+      if(time == 0 || time == -1){
+        clearTimer();
+        return;
+      } 
+      $("#timer").html("(" + (time--) + ")");
+    },1000);
+  }
+
+  function clearTimer(){
+    $("#vcodebtn").attr('disabled',false);
+    $("#vcodebtn").css('background',"#5bc0de");
+    $("#timer").html("");
+    window.clearInterval(timer);
+    time = 60;
+  }
+  function getMsgCode(){
+    var paramPhone = register.user.telephone;
+    if(!paramPhone){
+      alert( "请输入手机号码！");
+      return false;
+    }
+    if(!validateTel(paramPhone)){
+      alert('需要输入正确的手机号码哦!');
+      return false;
+    }
+    console.log(paramPhone)
+    var bodyParam = {"telephone": paramPhone}
+    // var paramPhone = register.user.telephone;
+    console.log(JSON.stringify(bodyParam))
+    var vcodeUrl = "member/vcode.do";
+    $.ajax({
+      type:'post',
+      dataType : 'json', 
+      url: common_url + vcodeUrl,
+      data: {json : JSON.stringify(bodyParam)},
+      success:function(data){
+          if(data && data.type == 1) {
+            setTimer();
+            alert("验证码已发送至您的手机!")
+          } else {
+            alert(JSON.stringify(data.msg) || "短信获取失败")
+          }
+      },
+      error:function(data){
+        alert( "获取验证码失败,请稍后重试!");
+      }
+    })
+  }
+
+</script>
+</body>
+</html>

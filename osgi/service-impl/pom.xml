@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.damuzee</groupId>
+		<artifactId>meilin-osgi</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+    <artifactId>meilin-service-impl</artifactId>
+    <version>1.0.0</version>
+    <packaging>bundle</packaging>
+	<name>${project.artifactId}</name>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.damuzee</groupId>
+            <artifactId>meilin-service-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--OSGI-->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.enterprise</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.aries.blueprint</groupId>
+            <artifactId>org.apache.aries.blueprint</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.0.1</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Service-Component>
+                            OSGI-INF/facade.xml
+                        </Service-Component>
+                        <Import-Package>
+                            org.osgi.framework,
+                            com.damuzee.service
+                        </Import-Package>
+                        <!--<Bundle-Activator>com.damuzee.ServiceActivator</Bundle-Activator>-->
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

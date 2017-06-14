@@ -1,0 +1,193 @@
+body{
+	background-color: #fee8d0;
+}
+.headerBg{
+	background: url("../image/signinBg.png")center center no-repeat;
+	width: 100%;
+	height: 15em;
+	display: block;
+	background-size: 100% 100%;
+}
+.signin{
+    padding: .5em 1.5em;
+    color: #fff;
+    border-radius: 3px;
+    color: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 8.5em;
+    right: 21%;
+	background: linear-gradient(#ffa600, #ff9000);
+	background: -webkit-linear-gradient(#ffa600, #ff9000);
+	background: -moz-linear-gradient(top, #ffa600,#ff9000);
+}
+.integralTop{
+	width: 90%;
+	margin-left: 5%;
+}
+.integraltot{
+    background: url("../image/envelope.png")center center no-repeat;
+    background-size: 100% 100%;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    display: inline-block;
+    text-align: center;
+    color: #fff102;
+}
+.integralMark{
+	background: url("../image/envelope.png")center center no-repeat;
+    background-size: 100% 100%;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    display: inline-block;
+    text-align: center;
+    color: #fff102;
+}
+.integral{
+	width: 90%;
+	margin-left: 5%;
+	height: 2em;
+	background-color: #ee5557;
+    border-radius: 2em;
+    position: relative;
+}
+.integralContent{
+    background-color: #4dbdef;
+    position: absolute;
+    top: 0.3em;
+    left: .5em;
+    border-radius: 1em;
+
+}
+.integralBottom{
+	margin-left: 5%;
+	margin-top: .5em;
+	border:1px solid #e2b78a;
+    display: inline-block;
+    padding: .1em 1em .1em .5em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #e2b78a;
+}
+footer{
+    margin-top: 2em;
+}
+.rule{
+	border:2px solid #f4b56e;
+	width: 80%;
+	margin-left: 10%;
+	border-radius: 5px;
+}
+.ruleTitle{
+	text-align: center;
+	display: block;
+	width: 100%;
+	margin-top: -.8em;
+}
+.ruleTitle span{
+	font-size: 1.1em;
+	background-color: #ff9000;
+	border-radius: 5px;
+	padding: .5em 1em;
+	color: #fff;
+}
+.ruleContent h4{
+	font-size: 1em;
+	margin:1em;
+	margin-bottom: .5em;
+}
+.activity{
+	background: url("../image/activity.png")center center no-repeat;
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	vertical-align: text-top;
+}
+
+/*弹出框*/
+.fullbg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1009;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    -khtml-opacity: 0.5;
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+.dialog {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    z-index: 1010;
+    min-width: 80%;
+    background-color: #FFF;
+    border: 2px solid #d2d2d2;
+    border-radius: 5px;
+}
+
+.dialog-title {
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 44px;
+    vertical-align: middle;
+    background-color: #ff9000;
+}
+
+.dialog-content {
+    padding: 10px;
+}
+
+.dialog-icon {
+	background: url(../image/1.jpg);
+	border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.dialog-info {
+    display: inline-block;
+    vertical-align: top;
+    height: 64px;
+    line-height: 64px;
+    margin-left: 1em;
+}
+
+.dialog .dialog-info span {
+    color: #ff0000;
+}
+.dialog-footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.dialog-footer button {
+    margin-left: 20px;
+}
+
+.dialog-footer button:first-child {
+    margin-left: 0;
+}
+
+.btn-creat{
+	background: linear-gradient(#ffa600, #ff9000);
+	background: -webkit-linear-gradient(#ffa600, #ff9000);
+	background: -moz-linear-gradient(top, #ffa600,#ff9000);
+}
+
+.btn-cancel{
+	background-color: #666;
+}

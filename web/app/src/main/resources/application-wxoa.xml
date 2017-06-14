@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="wxMpServiceImpl" class="me.chanjar.weixin.mp.api.WxMpServiceImpl">
+        <property name="wxMpConfigStorage" ref="wxMpInMemoryConfigStorage"/>
+    </bean>
+
+    <bean id="wxMpInMemoryConfigStorage" class="me.chanjar.weixin.mp.api.WxMpInMemoryConfigStorage">
+        <property name="appId" value="${wxoa.appID}"/>
+        <property name="secret" value="${wxoa.appsecret}"/>
+        <property name="token" value="${wxoa.token}"/>
+        <property name="aesKey" value="${wxoa.aesKey}"/>
+        <property name="oauth2redirectUri" value="${wxoa.hostname}"/>
+    </bean>
+
+</beans>

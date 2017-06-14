@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>团队功能页面-通知公告发布</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(function(){
+            $("#sildeC li .rightmost-jack").on("click",function(){
+                $("#slideMain").addClass("slide-right-show");
+                $("#slideHide").fadeIn()
+            });
+            $("#sildeC li>i").on("click",function(){
+                $("#slideMain").addClass("slide-left-show");
+                $("#slideHide").fadeIn()
+            });
+            $("#slideHide").on("click",function(){
+                $("#slideMain").removeClass("slide-right-show").removeClass("slide-left-show");
+                $(this).fadeOut()
+            });
+        })
+    </script>
+</head>
+
+
+<body class="body-bg-jack">
+    <!--点击列表左右箭头展现内容-->
+    <div class="silde-main" id="slideMain">
+        <div class="silde-l">
+            <!--左-->
+            <header>
+                <h1>运营部</h1>
+                <div class="header-left">
+
+                </div>
+                <div class="header-right">
+
+                </div>
+            </header>
+
+
+            <div class="main">
+                <!--content部分-->
+                <div class="jinruTTCtuandui-content-pc ub">
+                    <i></i>
+                    <div class="ub-f1">
+                        <span class="">招懂UI、PS的成员；有多个项目，有报酬；团队气氛良好，长逗逼</span>
+                        <div class="ub">
+                            <font class="f-name-pc ub-f1">尼古拉斯赵四</font>
+                            <font class="f-time-pc">2015-08-20  10:12</font>
+                        </div>
+                    </div>
+                </div>
+                <div class="jinruTTCtuandui-content-pc ub">
+                    <i></i>
+                    <div class="ub-f1">
+                        <span class="">招懂UI、PS的成员；有多个项目，有报酬；团队气氛良好，长逗逼</span>
+                        <div class="ub">
+                            <font class="f-name-pc ub-f1">尼古拉斯赵四</font>
+                            <font class="f-time-pc">2015-08-20  10:12</font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--左 end-->
+        </div>
+        <div class="silde-c" id="sildeC">
+            <div class="silde-bg" id="slideHide" style="display:none"></div>
+            <!--中-->
+            <header>
+                <h1>大学友圈</h1>
+                <div class="header-left">
+                    <i class="icon-header-return"></i>
+                </div>
+                <div class="header-right">
+                    <i class="icon-header-admin"></i>
+                </div>
+            </header>
+
+
+            <div class="main">
+
+                <div class="serch-div-jack">
+                    <i></i>
+                    <span><font>搜索</font></span>
+                </div>
+                <div class="section-jack clear">
+                    <ul>
+                        <li class="clear">
+                            <i></i>
+                            <div class="horn-headsets-jack">
+                                <i class="horn-jack"></i>
+                                <i class="headsets-jack"></i>
+                            </div>
+                            <span><font>运营部</font></span>
+                            <div class="rightmost-jack">
+                                <span><font>(2/32)</font></span>
+                                <i></i>
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <i></i>
+                            <div class="horn-headsets-jack">
+                                <i class="horn-jack"></i>
+                                <i class="headsets-jack"></i>
+                            </div>
+                            <span><font>项目部</font></span>
+                            <div class="rightmost-jack">
+                                <span><font>(2/32)</font></span>
+                                <i></i>
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <i></i>
+                            <span><font>市场部</font></span>
+                            <div class="rightmost-jack">
+                                <span><font>(2/32)</font></span>
+                                <i></i>
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <i></i>
+                            <div class="horn-headsets-jack">
+                                <i class="horn-jack"></i>
+                                <i class="headsets-jack"></i>
+                            </div>
+                            <span><font>技术部</font></span>
+                            <div class="rightmost-jack">
+                                <span><font>(2/32)</font></span>
+                                <i></i>
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <i></i>
+                            <span><font>财务部</font></span>
+                            <div class="rightmost-jack">
+                                <span><font>(2/32)</font></span>
+                                <i></i>
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <i></i>
+                            <div class="horn-headsets-jack">
+                                <i class="horn-jack"></i>
+                                <i class="headsets-jack"></i>
+                            </div>
+                            <span><font>全部成员</font></span>
+                            <div class="rightmost-jack">
+                                <span><font>(2/32)</font></span>
+                                <i></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li class="on">
+                        <i class="icon-nav-home"></i>
+                        <font>首页</font>
+                    </li>
+                    <li>
+                        <i class="icon-nav-team"></i>
+                        <font>团队</font>
+                    </li>
+                    <li>
+                        <div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-nav-message"></i>
+                        <font>消息</font>
+                    </li>
+                    <li>
+                        <i class="icon-nav-user"></i>
+                        <font>首页</font>
+                    </li>
+                </ul>
+            </nav>
+            <!--中 end-->
+        </div>
+        <div class="silde-r">
+            <!--右-->
+            <header>
+                <h1>外联部</h1>
+            </header>
+            <div class="jrTCCtd-person-list">
+                <span><i class="jrTCCtd-person-list-icon"></i>管理员</span>
+                <div class="ub person-list">
+                    <i class=""></i>
+                    <div class="ub-f1 ub ub-ver name-job">
+                        <div class="ub">
+                            <span class="ub-f1">尼古拉斯赵四</span>
+                            <i class="jrTCCtd-person-list-icon2"><a><font>11</font></a></i>
+                        </div>
+                        <div class="ub">
+                            <span class="ub-f1"><font class="font1">部长</font></span>
+                            <font class="font2">9:42</font>
+                        </div>
+                    </div>
+                </div>
+                <div class="ub person-list">
+                    <i></i>
+                    <div class="ub-f1 ub  name-job ub-ac">
+                        <div class=" ub-f1">
+                            <span>程若兰</span>
+                            <span><font class="font1">副部长</font></span>
+                        </div>
+                        <i class="jrTCCtd-person-list-icon3"></i>
+                    </div>
+                </div>
+                <div class="ub person-list person-list-bor">
+                    <i></i>
+                    <div class="ub-f1 ub ub-ver name-job">
+                        <div class="ub">
+                            <span class="ub-f1">葛成晓</span>
+                            <i class="jrTCCtd-person-list-icon4"></i>
+                        </div>
+                        <div class="ub">
+                            <span class="ub-f1"><font class="font1">副部长</font></span>
+                            <font class="font2">9:42</font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="jrTCCtd-person-list">
+                <span><i class="jrTCCtd-person-list-icon7"></i>成员</span>
+                <div class="ub person-list">
+                    <i></i>
+                    <div class="ub-f1 ub name-job ub-ac">
+                        <div class="ub-f1">
+                            <span class="ub-f1">王德金</span>
+                            <span class="ub-f1"><font class="font1">网站组组长</font></span>
+                        </div>
+                        <div class="ub ub-ver ub-ac ">
+                            <i class="jrTCCtd-person-list-icon2"></i>
+                            <font class="font2">9:42</font>
+                        </div>
+                        <div class="ub ub-ver ub-ac mar-l">
+                            <i class="jrTCCtd-person-list-icon5"></i>
+                            <font class="font2">10-12</font>
+                        </div>
+                    </div>
+                </div>
+                <div class="ub person-list person-list-bor">
+                    <i></i>
+                    <div class="ub-f1 ub name-job ub-ac">
+                        <div class="ub-f1">
+                            <span class="ub-f1">鸡蛋羹</span>
+                            <span class="ub-f1"><font class="font1">办公室</font></span>
+                        </div>
+                        <div class="ub ub-ver ub-ac ">
+                            <i class="jrTCCtd-person-list-icon2"></i>
+                            <font class="font2">9:42</font>
+                        </div>
+                        <div class="ub ub-ver ub-ac mar-l">
+                            <i class="jrTCCtd-person-list-icon6"></i>
+                            <font class="font2">10-12</font>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="person-list-footer ub ">
+                <div class="ub-f1 ub  ub-pc ub-ac">
+                    <i class="jrTCCtd-person-list-icon9"></i>
+                </div>
+                <div class="ub-f1 ub  ub-pc ub-ac">
+                    <i class="jrTCCtd-person-list-icon10"></i>
+                </div>
+                <div class="ub-f1 ub  ub-pc ub-ac">
+                    <i class="jrTCCtd-person-list-icon11"></i>
+                </div>
+                <div class="ub-f1 ub  ub-pc ub-ac">
+                    <i class="jrTCCtd-person-list-icon12"></i>
+                </div>
+            </div>
+            <!--右 end-->
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

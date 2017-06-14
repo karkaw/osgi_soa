@@ -1,0 +1,108 @@
+.coins{
+	background-color: #e67259;
+	height: 10em;
+	width: 100%;
+	color:#fff;
+	text-align: center;
+	box-shadow: 0 0 10px 5px #ccc
+}
+.totalCoins{
+	font-size: 3em;
+	border-bottom:1px solid #fff;
+}
+.totaltext{
+    margin-top: .5em;
+	font-size: .4em;
+    position: absolute;
+    font-family: "黑体";
+    width: 100%;
+    left: 0;
+    text-align: center;
+}
+.totalmoney{
+    height: 1em;
+    line-height: 1em;
+    margin-top: 1em;
+    display: inline-block;
+}
+.otherCoins{
+	width: 50%;
+	position: absolute;
+	left: 0;
+	line-height: 1.5em;
+	margin-top: .1em;
+}
+.otherCoinsImg{
+	width: 1.2em;
+	height: 1.2em;
+	background: url("../image/otherCoins.png")center center no-repeat;
+	display: inline-block;
+	background-size: 100% 100%;
+	vertical-align: text-top;
+}
+.integralImg{
+	width: 1.2em;
+	height: 1.2em;
+	background: url("../image/integral.png")center center no-repeat;
+	display: inline-block;
+	background-size: 100% 100%;
+	vertical-align: text-top;
+}
+.otherCoins span,.integral span{
+	display:block;
+}
+.integral{
+	width: 50%;
+	position: absolute;
+	left: 50%;
+	line-height: 1.5em;
+	margin-top: .1em;
+}
+.level div{
+	height: 5em;
+	line-height:5em;
+	border-bottom: 1px solid #eee;
+}
+.myLevel{
+	border-left: 5px solid #34b3af;
+	color:#34b3af;
+}
+.direct{
+	border-left: 5px solid #c6583f;
+	color:#c6583f;
+}
+.indirect{
+	border-left: 5px solid #076d91;
+	color:#076d91;
+}
+.myLevelText, .directText, .indirectText {
+	font-size: 1em;
+}
+.myLevelContent, .directContent, .indirectContent{
+	float:right;
+	margin-right:1em;
+}
+.myLevelImg{
+	width: 1.2em;
+	height: 1.2em;
+	vertical-align: middle;
+	background: url("../image/myLevel.png")center center no-repeat;
+	display: inline-block;
+	background-size: 100% 100%;
+}
+.directImg{
+	width: 1.2em;
+	height: 1.2em;
+	vertical-align: middle;
+	background: url("../image/direct.png")center center no-repeat;
+	display: inline-block;
+	background-size: 100% 100%;
+}
+.indirectImg{
+	width: 1.2em;
+	height: 1.2em;
+	vertical-align: middle;
+	background: url("../image/indirect.png")center center no-repeat;
+	display: inline-block;
+	background-size: 100% 100%;
+}
