@@ -1,7 +1,7 @@
 package com.damuzee.service.impl;
 
 import com.damuzee.service.IBaseService;
-import com.sun.jndi.toolkit.ctx.ComponentContext;
+import org.osgi.service.component.ComponentContext;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,11 +13,12 @@ public class  BaseServiceImpl implements IBaseService {
 
     private static final Logger LOGGER = Logger.getLogger(BaseServiceImpl.class.getName());
 
-    protected void activate(ComponentContext cCxt) {
+    protected void activate(ComponentContext content) {
         LOGGER.log(Level.INFO, "BaseServiceImpl activated.");
+
     }
 
-    protected void deactivate(ComponentContext cCxt) {
+    protected void deactivate(ComponentContext content) {
         LOGGER.log(Level.INFO, "BaseServiceImpl deactivated.");
     }
 

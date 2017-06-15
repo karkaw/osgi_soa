@@ -1,7 +1,5 @@
 package com.damuzee;
 
-import com.damuzee.service.provider.IProviderService;
-import com.damuzee.service.provider.impl.DefaultProviderService;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceRegistration;
