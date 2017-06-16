@@ -10,9 +10,10 @@
 
     <modules>
         <module>register</module>
+        <module>remote</module>
         <module>service-provider</module>
-        <module>service-api</module>
-        <module>service-impl</module>
+        <module>test-service-api</module>
+        <module>test-service-impl</module>
     </modules>
 
     <profiles>
@@ -61,7 +62,7 @@
         <jstl.version>1.2</jstl.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <osgi.output.path>F:\workplace\soa\felix5.4.0\plugins</osgi.output.path>
+        <osgi.output.path>F:\workplace\soa\felix5.4.0\plugins_bak</osgi.output.path>
     </properties>
 
     <repositories>

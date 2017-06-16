@@ -1,6 +1,6 @@
 package com.damuzee;
 
-import com.damuzee.service.provider.IProviderService;
+import com.damuzee.provider.IProviderService;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;

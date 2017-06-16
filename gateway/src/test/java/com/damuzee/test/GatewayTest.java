@@ -1,5 +1,6 @@
 package com.damuzee.test;
 
+import com.damuzee.provider.IProviderService;
 import com.damuzee.service.GateWay;
 import com.damuzee.service.IBaseService;
 import org.junit.Test;
@@ -12,8 +13,7 @@ public class GatewayTest {
     @Test
     public void testInvote(){
         GateWay gateWay = new  GateWay();
-        IBaseService baseService = (IBaseService) gateWay.invoke("com.damuzee.service.IBaseService");
-        String result = baseService.getHelloWord("22312");
-        System.out.print(result);
+        IProviderService baseService = (IProviderService) gateWay.invoke("");
+        System.out.print(baseService);
     }
 }

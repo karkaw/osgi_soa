@@ -14,16 +14,11 @@
     <packaging>bundle</packaging>
 	<name>${project.artifactId}</name>
 
-	<!-- Jar版本管理 -->
-    <properties>
-        <jsoup>1.7.3</jsoup>
-        <shiro-version>1.2.3</shiro-version>
-    </properties>
 
-	<dependencies>
+    <dependencies>
         <dependency>
             <groupId>com.damuzee</groupId>
-            <artifactId>meilin-service-api</artifactId>
+            <artifactId>test-service-api</artifactId>
             <version>1.0.0</version>
         </dependency>
 
@@ -34,14 +29,22 @@
             <version>4.2.0</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.enterprise</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>4.2.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.aries.blueprint</groupId>
             <artifactId>org.apache.aries.blueprint</artifactId>
             <version>1.1.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -53,21 +56,20 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Service-Component>OSGI-INF/serviceLocator.xml</Service-Component>
+                        <Service-Component>
+                            OSGI-INF/facade.xml
+                        </Service-Component>
                         <Import-Package>
                             org.osgi.framework,
                             org.osgi.service.component,
                             com.damuzee.service
                         </Import-Package>
-                        <Bundle-Activator>
+                       <!-- <Bundle-Activator>
                             com.damuzee.ProviderActivator
-                        </Bundle-Activator>
-                        <Embed-Dependency>*</Embed-Dependency>
-                        <DynamicImport-Package>*</DynamicImport-Package>
+                        </Bundle-Activator>-->
                     </instructions>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

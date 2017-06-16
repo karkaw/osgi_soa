@@ -1,6 +1,6 @@
 package com.damuzee.service;
 
-import com.damuzee.service.provider.IProviderService;
+import com.damuzee.provider.IProviderService;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -16,7 +16,7 @@ public class GateWay {
         //TODO 从Zookeeper查询服务的存根服务器
 
         //TODO 通过RMI实例化对象
-        String host = "127.0.0.1";
+        String host = "192.168.0.128";
         int port = 1099;
         try {
             Registry registry = LocateRegistry.getRegistry(host,port);

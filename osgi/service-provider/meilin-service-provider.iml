@@ -4,10 +4,10 @@
     <facet type="Osmorc" name="OSGi">
       <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="meilin-service-provider-1.0.0.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="com.damuzee.ProviderActivator" bundleSymbolicName="com.damuzee.meilin-service-provider" bundleVersion="1.0.0" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
-          <property key="Service-Component" value="OSGI-INF/serviceLocator.xml" />
-          <property key="Import-Package" value="org.osgi.framework,org.osgi.service.component,org.slf4j,com.damuzee.service" />
+          <property key="Service-Component" value="OSGI-INF/facade.xml" />
+          <property key="Import-Package" value="org.osgi.framework,org.osgi.service.component,com.damuzee.service" />
           <property key="Bundle-Name" value="meilin-service-provider" />
-          <property key="Include-Resource" value="{OSGI-INF/osgi.properties=$MODULE_DIR$/src/main/resources/OSGI-INF/osgi.properties},{OSGI-INF/serviceLocator.xml=$MODULE_DIR$/src/main/resources/OSGI-INF/serviceLocator.xml}" />
+          <property key="Include-Resource" value="{OSGI-INF/facade.xml=$MODULE_DIR$/src/main/resources/OSGI-INF/facade.xml}" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -25,15 +25,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="meilin-service-api" />
+    <orderEntry type="module" module-name="test-service-api" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.osgi:org.osgi.enterprise:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.osgi:org.osgi.compendium:4.2.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.13" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.10" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: log4j:log4j:1.2.15" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.aries.blueprint:org.apache.aries.blueprint:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
   </component>
 </module>

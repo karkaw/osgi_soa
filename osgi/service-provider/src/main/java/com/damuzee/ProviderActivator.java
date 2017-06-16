@@ -1,7 +1,7 @@
 package com.damuzee;
 
-import com.damuzee.service.provider.IProviderService;
-import com.damuzee.service.provider.impl.DefaultProviderService;
+import com.damuzee.provider.IProviderService;
+import com.damuzee.provider.impl.DefaultProviderService;
 import org.osgi.framework.*;
 
 import java.net.InetAddress;
@@ -54,7 +54,7 @@ public class ProviderActivator implements BundleActivator ,ServiceListener,Bundl
         // TODO 获取所有的服务
         ServiceReference[] allServiceReferences = context.getServiceReferences(null, null);
         for (ServiceReference service: allServiceReferences){
-            System.out.println("----" +service.getPropertyKeys()[0].toString());
+            System.out.println("----" +service);
         }
 
         // TODO 获取本地IP地址
@@ -98,7 +98,7 @@ public class ProviderActivator implements BundleActivator ,ServiceListener,Bundl
         rmiRegistry.rebind("appService", theService);
     }
 
-    /*
+    /**
      * 创建一个Registry对象.
      * LocateRegistry用于获取名字服务或创建名字服务.
      * 调用LocateRegistry.createRegistry(int port)方法可以在某一特定端口创建名字服务,从而用户无需再手工启动rmiregistry

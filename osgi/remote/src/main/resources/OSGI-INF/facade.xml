@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="providerService">
+
+   <!-- <implementation class="com.damuzee.provider.impl.DefaultProviderService"/>
+
+    <service>
+        <provide interface="com.damuzee.provider.IProviderService">
+            <properties entry="OSGI-INF/osgi.properties" />
+        </provide>
+    </service>
+
+    <reference name="baseService" interface="com.damuzee.service.IBaseService"
+               cardinality="0..1" policy="dynamic"  bind="bind"  unbind="unbind"/>-->
+
+</component>
